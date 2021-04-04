@@ -1,6 +1,7 @@
 import { FeedDescription } from "../valueObjects/feedDescription";
 import { FeedImage } from "../valueObjects/feedImage";
 import { FeedNewsPaper } from "../valueObjects/feedNewsPaper";
+import { FeedId } from "../valueObjects/feedNumber";
 import { FeedSource } from "../valueObjects/feedSource";
 import { FeedTittle } from "../valueObjects/feedTittle";
 
@@ -13,10 +14,14 @@ export class Feed {
     private source: FeedSource,
     private image: FeedImage,
     private newsPaper: FeedNewsPaper,
+    private id?: FeedId,
   ) {}
 
   public getValueTittle(): string {
     return this.tittle.getValue();
+  }
+  public getValueId(): number {
+    return this.id!.getValue();
   }
   public getValueDescription(): string {
     return this.description.getValue();
@@ -31,9 +36,13 @@ export class Feed {
     return this.newsPaper.getValue();
   }
  
-  public feedToModel(){
-      return () =>{
-          
+  public feedToModelDB(){
+      return {
+         tittle: this.getValueTittle(),
+         description: this.getValueDescription(),
+         source: this.getValueSource(),
+         image: this.getValueImage(),
+         newsPaper: this.getValueNewsPaper()
       }
   }
 

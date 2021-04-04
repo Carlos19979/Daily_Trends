@@ -6,7 +6,7 @@ require('dotenv').config();
 const config = [
   {
     type: 'postgres',
-    name: 'example',
+    name: 'daily_trends',
     host: process.env.DB_HOST,
     port: parseInt(process.env.DB_PORT, 10),
     username: process.env.DB_USER,

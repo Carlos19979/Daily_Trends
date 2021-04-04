@@ -7,9 +7,7 @@ import { FeedDescription } from "../../domain/valueObjects/feedDescription";
 import { FeedImage } from "../../domain/valueObjects/feedImage";
 import { FeedNewsPaper } from "../../domain/valueObjects/feedNewsPaper";
 import { FeedSource } from "../../domain/valueObjects/feedSource";
-import { title } from "node:process";
 import { EntityManager, getConnection } from "typeorm";
-import { PersonalTrainerEntity } from "../persistence/typeORM/personalTrainerEntity";
 import { FeedEntity } from "../persistence/typeORM/feedEntity";
 
 
@@ -34,7 +32,7 @@ export class ScrapingNewsRepository implements ScrapingRepository {
      feeds.push(await this.getFeedsElMundo(elMundo[i]));
     }
    
-    await entityManager.save(FeedEntity,feeds[0].toModelDB());
+    await entityManager.save(FeedEntity,feeds[0].feedToModelDB());
     
 
   }
