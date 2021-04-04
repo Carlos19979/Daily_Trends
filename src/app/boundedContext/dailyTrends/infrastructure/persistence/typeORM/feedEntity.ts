@@ -18,14 +18,14 @@ export const FeedEntity = new EntitySchema<FeedModel>({
       nullable: false
     },
     image: {
-      type: Date,
+      type: String,
       nullable: false
     },
     source: {
       type: String,
       nullable: false
     },
-    newspapper: {
+    newspaper: {
       type: String,
       nullable: false
     }

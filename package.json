@@ -13,12 +13,12 @@
     "test:unit": "npx jest test/unit",
     "test:e2e": "npx jest test/e2e --forceExit",
     "test:unit:coverage": "npx jest --coverage",
-    "migrate:example:create": "npx ts-node node_modules/typeorm/cli.js migration:create -c example -n",
-    "migrate:example:run": "npx ts-node node_modules/typeorm/cli.js migration:run -c example",
-    "migrate:example:revert": "npx ts-node node_modules/typeorm/cli.js migration:revert -c example",
-    "seed:example:create": "npx ts-node node_modules/typeorm/cli.js migration:create -c seeds-example -n",
-    "seed:example:run": "npx ts-node node_modules/typeorm/cli.js migration:run -c seeds-example",
-    "seed:example:revert": "npx ts-node node_modules/typeorm/cli.js migration:revert -c seeds-example"
+    "migrate:daily_trends:create": "npx ts-node node_modules/typeorm/cli.js migration:create -c daily_trends -n",
+    "migrate:daily_trends:run": "npx ts-node node_modules/typeorm/cli.js migration:run -c daily_trends",
+    "migrate:daily_trends:revert": "npx ts-node node_modules/typeorm/cli.js migration:revert -c daily_trends",
+    "seed:daily_trends:create": "npx ts-node node_modules/typeorm/cli.js migration:create -c seeds-daily_trends -n",
+    "seed:daily_trends:run": "npx ts-node node_modules/typeorm/cli.js migration:run -c seeds-daily_trends",
+    "seed:daily_trends:revert": "npx ts-node node_modules/typeorm/cli.js migration:revert -c seeds-daily_trends"
   },
   "author": "Carlos Perez Martinez",
   "license": "MIT",

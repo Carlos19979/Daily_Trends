@@ -29,8 +29,7 @@ export class ScrapingNewsRepository implements ScrapingRepository {
       feeds.push(await this.getFeedsElPais(elPais[i]));
       feeds.push(await this.getFeedsElMundo(elMundo[i]));
     }
-
-    await entityManager.save(FeedEntity, feeds[0].feedToModelDB());
+    await entityManager.save(FeedEntity, feeds[4].feedToModelDB());
   }
 
   private async getFeedsElMundo(url:string): Promise<Feed> {
@@ -42,11 +41,15 @@ export class ScrapingNewsRepository implements ScrapingRepository {
 
       const tittle = $('h1').text();
       const body = $('div[class="ue-l-article__body ue-c-article__body"]').find('p').text();
-      const img = $('picture').find('img').attr('src');
+      let img = $('picture').find('img').attr('src');
       const source = $('.ue-c-article__byline-name').find('a').text();
       const newsPaper = 'El Mundo';
 
-      return new Feed(new FeedTittle(tittle), new FeedDescription(body), new FeedSource(source), new FeedImage(img!), new FeedNewsPaper(newsPaper));
+      if (!img) {
+        img = 'default.jpg';
+      }
+
+      return new Feed(new FeedTittle(tittle), new FeedDescription(body), new FeedSource(source), new FeedImage(img!.toString()), new FeedNewsPaper(newsPaper));
     });
 
     return result;

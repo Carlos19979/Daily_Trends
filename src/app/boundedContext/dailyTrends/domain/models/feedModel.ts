@@ -3,6 +3,6 @@ export interface FeedModel {
     tittle: string;
     description: string;
     image: string;
-    source: Date;
-    newspapper: string;
+    source: string;
+    newspaper: string;
   }

@@ -41,7 +41,7 @@ export class Feed {
       description: this.getValueDescription(),
       source: this.getValueSource(),
       image: this.getValueImage(),
-      newsPaper: this.getValueNewsPaper()
+      newspaper: this.getValueNewsPaper()
     };
   }
 

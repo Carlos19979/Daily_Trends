@@ -15,7 +15,7 @@ constructor() {
 
 public async run(req: Request, res: Response):Promise<void> {
   await this.scrap.run();
-  res.status(HTTP_STATUS.CREATED);
+  res.status(HTTP_STATUS.CREATED).send();
 }
 
 }

@@ -11,20 +11,20 @@ down:
 install: up
 	@docker-compose exec $(API_CONTAINER_NAME) npm install $(ARGS)
 
-migrate-example-create:up
-	@docker-compose exec $(API_CONTAINER_NAME) npm run migrate:example:create $(ARGS)
+migrate-daily_trends-create:up
+	@docker-compose exec $(API_CONTAINER_NAME) npm run migrate:daily_trends:create $(ARGS)
 
-migrate-example-run: up
-	@docker-compose exec $(API_CONTAINER_NAME) npm run migrate:example:run
+migrate-daily_trends-run: up
+	@docker-compose exec $(API_CONTAINER_NAME) npm run migrate:daily_trends:run
 
-migrate-example-revert: up
-	@docker-compose exec $(API_CONTAINER_NAME) npm run migrate:example:revert
+migrate-daily_trends-revert: up
+	@docker-compose exec $(API_CONTAINER_NAME) npm run migrate:daily_trends:revert
 
-seed-example-run: up
-	@docker-compose exec $(API_CONTAINER_NAME) npm run seed:example:run
+seed-daily_trends-run: up
+	@docker-compose exec $(API_CONTAINER_NAME) npm run seed:daily_trends:run
 
-seed-example-revert: up
-	@docker-compose exec $(API_CONTAINER_NAME) npm run seed:example:revert
+seed-daily_trends-revert: up
+	@docker-compose exec $(API_CONTAINER_NAME) npm run seed:daily_trends:revert
 
 run-dev: up
 	@docker-compose exec $(API_CONTAINER_NAME) npm run dev
