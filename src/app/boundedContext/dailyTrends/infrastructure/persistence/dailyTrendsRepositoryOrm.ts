@@ -15,8 +15,9 @@ export class DailyTrendsRepositoryOrm implements DailyTrendsRepository {
         const models = await entityManager.find(FeedEntity);
         return this.getFeedByModel(...models)
     }
-    postNew(): Promise<void> {
-        throw new Error("Method not implemented.");
+    async createNew(feed:Feed): Promise<void> {
+        const entityManager: EntityManager = getConnection('daily_trends').manager;
+        entityManager.save(FeedEntity,feed.feedToModelDB())
     }
 
 

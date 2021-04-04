@@ -1,7 +1,6 @@
 
 import { HTTP_STATUS } from '../../../shared/constants/http_codes';
 import { Request, Response } from 'express';
-import { DailyTrendsRepository } from '../../../../boundedContext/dailyTrends/domain/contracts/dailyTrendsRepository';
 import { DailyTrendsRepositoryOrm } from '../../../../boundedContext/dailyTrends/infrastructure/persistence/dailyTrendsRepositoryOrm';
 import { GetNews } from '../../../../boundedContext/dailyTrends/application/getNews';
 import { Feed } from '../../../../boundedContext/dailyTrends/domain/aggregates/feed';

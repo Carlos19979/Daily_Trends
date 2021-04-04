@@ -3,6 +3,7 @@ import { asyncHandler } from '../../shared/framework/utils/asyncHandler';
 import { ScrapingController } from '../controllers/news/scrapingController';
 import { Request, Response } from 'express';
 import { GetNewsController } from '../controllers/news/getNewsController';
+import { CreateNewController } from '../controllers/news/createNewController';
 
 const router: Router = express.Router();
 
@@ -16,6 +17,12 @@ router.get('/news', asyncHandler((req: Request, res: Response) => {
   const getNewsController: GetNewsController = new GetNewsController();
 
   return getNewsController.run(req, res);
+}));
+
+router.post('/createNew', asyncHandler((req: Request, res: Response) => {
+  const createNewController: CreateNewController = new CreateNewController();
+
+  return createNewController.run(req, res);
 }));
 
 export default router;
