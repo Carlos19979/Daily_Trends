@@ -1,0 +1,43 @@
+version: '3'
+
+services:
+  example_db:
+    image: postgres:11.1-alpine
+    container_name: example_db
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_DATABASE}
+    ports:
+      - '${DB_PORT}:${DB_PORT'
+    volumes:
+      - ./docker/postgres/:/docker-entrypoint-initdb.d/
+    networks:
+      - api-network
+
+  example_api:
+    image: 'node:14-alpine'
+    container_name: example_api
+    restart: unless-stopped
+    tty: true
+    working_dir: '/api'
+    env_file: .env
+    ports:
+      - ${NODE_PORT}:${NODE_PORT}
+    volumes:
+      - ./:/api
+    links:
+      - example_db
+    depends_on:
+      - example_db
+    networks:
+      - api-network
+
+
+networks:
+  api-network:
+    driver: bridge
+
+volumes:
+  dbdata:
+    driver: local
