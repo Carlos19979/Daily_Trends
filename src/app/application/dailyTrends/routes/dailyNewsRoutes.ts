@@ -1,8 +1,7 @@
-import express, { Router } from "express";
-import { asyncHandler } from "../../shared/framework/utils/asyncHandler";
-import { ScrapingController } from "../controllers/news/scrapingController";
+import express, { Router } from 'express';
+import { asyncHandler } from '../../shared/framework/utils/asyncHandler';
+import { ScrapingController } from '../controllers/news/scrapingController';
 import { Request, Response } from 'express';
-
 
 const router: Router = express.Router();
 

@@ -6,7 +6,7 @@ export const FeedEntity = new EntitySchema<FeedModel>({
   columns: {
     id: {
       primary: true,
-      type:Number,
+      type: Number,
       generated: true
     },
     tittle: {

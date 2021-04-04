@@ -1,6 +1,6 @@
 .PHONY: up down install migrate-example-run migrate-example-revert seed-example-run seed-example-revert run-dev run-start run-build run-test run-test-unit run-test-unit-coverage eslint-check eslint-fix
 
-API_CONTAINER_NAME=example_api
+API_CONTAINER_NAME=daily_trends_api
 
 up:
 	@docker-compose up -d

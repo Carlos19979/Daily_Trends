@@ -6,4 +6,3 @@ export interface FeedModel {
     source: Date;
     newspapper: string;
   }
-  

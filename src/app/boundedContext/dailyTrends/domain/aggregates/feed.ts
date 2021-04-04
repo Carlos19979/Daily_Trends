@@ -1,10 +1,9 @@
-import { FeedDescription } from "../valueObjects/feedDescription";
-import { FeedImage } from "../valueObjects/feedImage";
-import { FeedNewsPaper } from "../valueObjects/feedNewsPaper";
-import { FeedId } from "../valueObjects/feedNumber";
-import { FeedSource } from "../valueObjects/feedSource";
-import { FeedTittle } from "../valueObjects/feedTittle";
-
+import { FeedDescription } from '../valueObjects/feedDescription';
+import { FeedImage } from '../valueObjects/feedImage';
+import { FeedNewsPaper } from '../valueObjects/feedNewsPaper';
+import { FeedId } from '../valueObjects/feedNumber';
+import { FeedSource } from '../valueObjects/feedSource';
+import { FeedTittle } from '../valueObjects/feedTittle';
 
 export class Feed {
 
@@ -14,7 +13,7 @@ export class Feed {
     private source: FeedSource,
     private image: FeedImage,
     private newsPaper: FeedNewsPaper,
-    private id?: FeedId,
+    private id?: FeedId
   ) {}
 
   public getValueTittle(): string {
@@ -35,15 +34,15 @@ export class Feed {
   public getValueNewsPaper(): string {
     return this.newsPaper.getValue();
   }
- 
-  public feedToModelDB(){
-      return {
-         tittle: this.getValueTittle(),
-         description: this.getValueDescription(),
-         source: this.getValueSource(),
-         image: this.getValueImage(),
-         newsPaper: this.getValueNewsPaper()
-      }
+
+  public feedToModelDB() {
+    return {
+      tittle: this.getValueTittle(),
+      description: this.getValueDescription(),
+      source: this.getValueSource(),
+      image: this.getValueImage(),
+      newsPaper: this.getValueNewsPaper()
+    };
   }
 
 }

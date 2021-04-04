@@ -1,9 +1,9 @@
 version: '3'
 
 services:
-  daily_trends:
+  daily_trends_db:
     image: postgres:11.1-alpine
-    container_name: daily_trends
+    container_name: daily_trends_db
     environment:
       POSTGRES_USER: ${DB_USER}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
@@ -15,7 +15,7 @@ services:
     networks:
       - api-network
 
-  example_api:
+  daily_trends_api:
     image: 'node:14-alpine'
     container_name: daily_trends_api
     restart: unless-stopped
@@ -27,9 +27,9 @@ services:
     volumes:
       - ./:/api
     links:
-      - daily_trends
+      - daily_trends_db
     depends_on:
-      - daily_trends
+      - daily_trends_db
     networks:
       - api-network
 

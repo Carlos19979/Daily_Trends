@@ -1,20 +1,11 @@
-import { ScrapingRepository } from "../domain/contracts/scrapingRepository";
+import { ScrapingRepository } from '../domain/contracts/scrapingRepository';
 
-export class Scrap{
+export class Scrap {
 
-
-  constructor(
-    private scrapingRepositoryImpl:ScrapingRepository
-    ){}
-
+  constructor(private scrapingRepositoryImpl:ScrapingRepository) {}
 
   public async run(): Promise<void> {
-
-    await this.scrapingRepositoryImpl.scrap()
-    
-
+    await this.scrapingRepositoryImpl.scrap();
   }
-    
-
 
 }
