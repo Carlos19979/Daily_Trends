@@ -21,6 +21,7 @@ export class ScrapingNewsRepository implements ScrapingRepository {
     let elPais = [];
     let elMundo = [];
     const feeds = [];
+    const feedsModels = [];
 
     elPais = await this.newsLinkScrapper(url2, classe2);
     elMundo = await this.newsLinkScrapper(url, classe);
@@ -29,7 +30,11 @@ export class ScrapingNewsRepository implements ScrapingRepository {
       feeds.push(await this.getFeedsElPais(elPais[i]));
       feeds.push(await this.getFeedsElMundo(elMundo[i]));
     }
-    await entityManager.save(FeedEntity, feeds[4].feedToModelDB());
+    for (let i = 0; i < feeds.length; i++) {
+      feedsModels.push(feeds[i].feedToModelDB());
+    }
+
+    await entityManager.save(FeedEntity, feedsModels);
   }
 
   private async getFeedsElMundo(url:string): Promise<Feed> {
