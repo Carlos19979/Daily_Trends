@@ -12,7 +12,7 @@ export class Feed {
     private description: FeedDescription,
     private source: FeedSource,
     private image: FeedImage,
-    private newsPaper: FeedNewsPaper,
+    private newspaper: FeedNewsPaper,
     private id?: FeedId
   ) {}
 
@@ -32,7 +32,7 @@ export class Feed {
     return this.image.getValue();
   }
   public getValueNewsPaper(): string {
-    return this.newsPaper.getValue();
+    return this.newspaper.getValue();
   }
 
   public feedToModelDB() {
@@ -41,7 +41,7 @@ export class Feed {
       description: this.getValueDescription(),
       source: this.getValueSource(),
       image: this.getValueImage(),
-      newsPaper: this.getValueNewsPaper()
+      newspaper: this.getValueNewsPaper()
     };
   }
 
