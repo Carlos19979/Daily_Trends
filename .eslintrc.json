@@ -211,7 +211,7 @@
         ],
         "max-lines-per-function": [
             "error",
-            20
+            25
         ],
         "max-params": [
             "error",

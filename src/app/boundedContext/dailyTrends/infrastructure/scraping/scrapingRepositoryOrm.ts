@@ -33,7 +33,7 @@ export class ScrapingNewsRepository implements ScrapingRepository {
     await entityManager.save(FeedEntity, feeds[0].feedToModelDB());
   }
 
-  private async getFeedsElMundo(url:any): Promise<Feed> {
+  private async getFeedsElMundo(url:string): Promise<Feed> {
     const AxiosInstance = axios.create();
 
     const result = await AxiosInstance.get(url).then(response => {
@@ -45,15 +45,14 @@ export class ScrapingNewsRepository implements ScrapingRepository {
       const img = $('picture').find('img').attr('src');
       const source = $('.ue-c-article__byline-name').find('a').text();
       const newsPaper = 'El Mundo';
-      let feed:Feed;
 
-      return feed = new Feed(new FeedTittle(tittle), new FeedDescription(body), new FeedSource(source), new FeedImage(img!), new FeedNewsPaper(newsPaper));
+      return new Feed(new FeedTittle(tittle), new FeedDescription(body), new FeedSource(source), new FeedImage(img!), new FeedNewsPaper(newsPaper));
     });
 
     return result;
   }
 
-  private async getFeedsElPais(url:any): Promise<Feed> {
+  private async getFeedsElPais(url:string): Promise<Feed> {
     const AxiosInstance = axios.create();
 
     const result = await AxiosInstance.get(url).then(response => {
@@ -65,9 +64,8 @@ export class ScrapingNewsRepository implements ScrapingRepository {
       const img = $('.lead_art').find('img').attr('src');
       const source = $('.a_aut_n').text();
       const newsPaper = 'El pais';
-      let feed:Feed;
 
-      return feed = new Feed(new FeedTittle(tittle), new FeedDescription(body), new FeedSource(source), new FeedImage(img!), new FeedNewsPaper(newsPaper));
+      return new Feed(new FeedTittle(tittle), new FeedDescription(body), new FeedSource(source), new FeedImage(img!), new FeedNewsPaper(newsPaper));
     });
 
     return result;
