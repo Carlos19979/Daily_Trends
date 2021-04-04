@@ -4,12 +4,12 @@ import express, { Application, NextFunction, Request, Response } from 'express';
 import morgan from 'morgan';
 import 'reflect-metadata';
 import { createConnection } from 'typeorm';
-import daylitrends from './application/dailyTrends/routes';
+import personalTrainerRoutes from './application/dayliTrends/routes';
 import { exceptionHandler } from './application/shared/middlewares/exceptionHandler';
 
 dotenv.config({ path: __dirname + '/../../.env' });
 
-createConnection('daylitrends');
+createConnection('example');
 
 const app: Application = express();
 const port = process.env.NODE_PORT;
@@ -19,7 +19,7 @@ app.use(morgan('combined'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-daylitrends(app, '/daylitrends');
+personalTrainerRoutes(app, '/personal-trainer');
 
 app.use((error: Error, req: Request, res: Response, next: NextFunction) => {
   exceptionHandler(error, res);

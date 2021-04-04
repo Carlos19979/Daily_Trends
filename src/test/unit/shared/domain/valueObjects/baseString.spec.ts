@@ -1,7 +1,8 @@
 import { BaseString } from '../../../../../app/boundedContext/shared/domain/valueObjects/baseString';
 
+// eslint-disable-next-line max-lines-per-function
 describe('Unit test to Base String Value Object', () => {
-  const string = 'Iván';
+  const string = 'Tittle';
   const baseString = new BaseString(string);
 
   test('Should get value of string when call method getValue()', async () => {

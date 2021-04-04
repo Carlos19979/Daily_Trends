@@ -1,2 +1,3 @@
 # Node.js-Skeleton
-Base Skeleton build for node.js using typescript for dailytrends, express and docker, reference for hexagonal architecture and ddd
+Skeleton build for node.js using typescript, express and docker, reference for hexagonal architecture and ddd.
+
