@@ -31,3 +31,11 @@ describe('E2E test to getNews Application service', () => {
       .get('/daily_trends/scrap').expect(HTTP_STATUS.SUCCESS);
   });
 });
+
+
+describe('E2E test to delete Application service', () => {
+  test('Should check if delete Reponds as SUCCESS', async () => {
+    supertest(app)
+      .delete('/daily_trends/new/2').expect(HTTP_STATUS.SUCCESS);
+  });
+});
