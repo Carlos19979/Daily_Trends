@@ -4,6 +4,7 @@ import { ScrapingController } from '../controllers/news/scrapingController';
 import { Request, Response } from 'express';
 import { GetNewsController } from '../controllers/news/getNewsController';
 import { CreateNewController } from '../controllers/news/createNewController';
+import { DeleteNewController } from '../controllers/news/deleteNewController';
 
 const router: Router = express.Router();
 
@@ -23,6 +24,12 @@ router.post('/new', asyncHandler((req: Request, res: Response) => {
   const createNewController: CreateNewController = new CreateNewController();
 
   return createNewController.run(req, res);
+}));
+
+router.delete('/new/:id', asyncHandler((req: Request, res: Response) => {
+  const deleteNewController: DeleteNewController = new DeleteNewController();
+
+  return deleteNewController.run(req, res);
 }));
 
 export default router;

@@ -12,7 +12,7 @@ dotenv.config({ path: __dirname + '/../../.env' });
 createConnection('daily_trends');
 
 const app: Application = express();
-const port = process.env.PORT || 3000;
+const port = process.env.NODE_PORT || 3000;
 
 app.use(helmet());
 app.use(morgan('combined'));
@@ -26,8 +26,8 @@ app.use((error: Error, req: Request, res: Response, next: NextFunction) => {
   next();
 });
 
-if (process.env.NODE_ENV !== 'test') {
-  app.listen(port, () => console.log(`Listening on port ${port}`))
-}
+app.listen(port, () => {
+  console.info('server run on port: ' + port);
+});
 
 export default app;

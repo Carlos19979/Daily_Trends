@@ -5,11 +5,19 @@ import { FeedModel } from "../../domain/models/feedModel";
 import { FeedDescription } from "../../domain/valueObjects/feedDescription";
 import { FeedImage } from "../../domain/valueObjects/feedImage";
 import { FeedNewsPaper } from "../../domain/valueObjects/feedNewsPaper";
+import { FeedId } from "../../domain/valueObjects/feedNumber";
 import { FeedSource } from "../../domain/valueObjects/feedSource";
 import { FeedTittle } from "../../domain/valueObjects/feedTittle";
 import { FeedEntity } from "./typeORM/feedEntity";
 
 export class DailyTrendsRepositoryOrm implements DailyTrendsRepository {
+    async deleteNew(feedId: FeedId): Promise<void> {
+        const entityManager: EntityManager = getConnection('daily_trends').manager;
+        await entityManager.delete(FeedEntity,feedId.getValue());
+        
+    }
+
+    
     async getNews(): Promise<Feed[]> {
         const entityManager: EntityManager = getConnection('daily_trends').manager;
         const models = await entityManager.find(FeedEntity);
