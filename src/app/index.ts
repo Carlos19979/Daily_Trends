@@ -26,7 +26,8 @@ app.use((error: Error, req: Request, res: Response, next: NextFunction) => {
   next();
 });
 
-app.listen(port,() => console.log("server starting on port "+port));
-
+if (process.env.NODE_ENV !== 'test') {
+  app.listen(port, () => console.log(`Listening on port ${port}`))
+}
 
 export default app;

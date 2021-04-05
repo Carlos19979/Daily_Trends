@@ -19,7 +19,7 @@ router.get('/news', asyncHandler((req: Request, res: Response) => {
   return getNewsController.run(req, res);
 }));
 
-router.post('/createNew', asyncHandler((req: Request, res: Response) => {
+router.post('/new', asyncHandler((req: Request, res: Response) => {
   const createNewController: CreateNewController = new CreateNewController();
 
   return createNewController.run(req, res);
